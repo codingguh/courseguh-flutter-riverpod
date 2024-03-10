@@ -1,9 +1,15 @@
+import 'package:courseguh/common/utils/app_styles.dart';
+import 'package:courseguh/screens/sign_in/sign_in.dart';
+import 'package:courseguh/screens/sign_up/sign_up.dart';
 import 'package:courseguh/screens/welcome/welcome.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -13,14 +19,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(375, 812),
+      designSize: const Size(375, 812),
       child: MaterialApp(
           title: 'Flutter Demo',
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
-          home: Welcome()),
+          theme: AppTheme.appThemeData,
+          routes: {
+            "/": (context) => Welcome(),
+            "/sign-in": (context) => const SignIn(),
+            "/sign-up": (context) => const SignUp(),
+          }),
     );
   }
 }
