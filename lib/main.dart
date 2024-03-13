@@ -1,15 +1,13 @@
+import 'package:courseguh/common/routes/routes.dart';
 import 'package:courseguh/common/utils/app_styles.dart';
-import 'package:courseguh/screens/sign_in/sign_in.dart';
-import 'package:courseguh/screens/sign_up/sign_up.dart';
-import 'package:courseguh/screens/welcome/welcome.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:courseguh/common/utils/constants.dart';
+import 'package:courseguh/global.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Global.init();
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -20,14 +18,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
-      child: MaterialApp(
-          title: 'Flutter Demo',
-          theme: AppTheme.appThemeData,
-          routes: {
-            "/": (context) => Welcome(),
-            "/sign-in": (context) => const SignIn(),
-            "/sign-up": (context) => const SignUp(),
-          }),
+      builder: (context, child) => MaterialApp(
+        // debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: AppTheme.appThemeData,
+        initialRoute: AppConstants.INITIAL,
+        onGenerateRoute: AppScreens.generateRouteSettings,
+      ),
     );
   }
 }

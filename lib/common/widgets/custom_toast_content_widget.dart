@@ -57,7 +57,7 @@ class IconToastWidget extends StatelessWidget {
             crossAxisAlignment: WrapCrossAlignment.center,
             children: <Widget>[
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 5.0),
+                padding: const EdgeInsets.symmetric(horizontal: 5.0),
                 child: Image.asset(
                   assetName!,
                   fit: BoxFit.fill,

@@ -1,6 +1,7 @@
+import 'package:courseguh/common/utils/constants.dart';
 import 'package:courseguh/common/widgets/app_shadow.dart';
 import 'package:courseguh/common/widgets/text_widget.dart';
-import 'package:courseguh/screens/sign_in/sign_in.dart';
+import 'package:courseguh/global.dart';
 import 'package:flutter/material.dart';
 
 Widget appOnBoardingScreen(PageController controller,
@@ -30,16 +31,17 @@ Widget appOnBoardingScreen(PageController controller,
 Widget _nextButton(int index, PageController controller, BuildContext context) {
   return GestureDetector(
     onTap: () {
+      bool deviceFirstTime = Global.storageService.getDeviceFirstOpen();
+      print("from tab $deviceFirstTime");
+      print(AppConstants.STORAGE_DEVICE_OPEN_FIRST_KEY);
       if (index < 3) {
         controller.animateToPage(index,
-            duration: const Duration(milliseconds: 300), curve: Curves.linear);
+            duration: const Duration(milliseconds: 100), curve: Curves.linear);
       } else {
-        Navigator.push<void>(
-          context,
-          MaterialPageRoute<void>(
-            builder: (BuildContext context) => const SignIn(),
-          ),
-        );
+        //remember if we are first time or not
+        Global.storageService
+            .setBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_KEY, true);
+        Navigator.pushNamed(context, '/sign_in');
       }
     },
     child: Container(

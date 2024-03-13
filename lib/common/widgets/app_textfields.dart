@@ -9,6 +9,7 @@ Widget appTextField(
     String iconName = "",
     String hintText = "Type in your info",
     bool obsecureText = false,
+    TextEditingController? controller,
     void Function(String value)? func}) {
   return Container(
     padding: EdgeInsets.only(left: 25.w, right: 25.w),
@@ -30,10 +31,11 @@ Widget appTextField(
                 margin: EdgeInsets.only(left: 17.w),
                 child: appImage(imagePath: iconName),
               ),
-              Container(
+              SizedBox(
                 width: 280.w,
                 height: 50.h,
                 child: TextField(
+                  controller: controller,
                   onChanged: (value) => {func!(value)},
                   keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(

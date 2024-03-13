@@ -31,15 +31,19 @@ dependencies:
   build_runner: ^2.4.8
   cupertino_icons: ^1.0.6
   dots_indicator: ^3.0.0
-  firebase_core: ^2.25.4
-  firebase_auth: ^4.17.4
+  firebase_core: ^2.27.0
+  firebase_auth: ^4.17.8
   flutter:
     sdk: flutter
-  flutter_riverpod: ^2.4.10
+  flutter_riverpod: ^2.5.1
   flutter_screenutil: ^5.9.0
-  fluttertoast: ^8.2.4
-  riverpod_generator: ^2.3.11
+  riverpod_generator: ^2.4.0
   flutter_styled_toast: ^2.2.1
+  firebase_ui_auth: ^1.13.1
+  cloud_firestore: ^4.15.9
+  shared_preferences: ^2.2.2
+  lottie: ^3.1.0
+  riverpod_annotation: ^2.3.5
 
 dev_dependencies:
   flutter_lints: ^3.0.0
@@ -61,6 +65,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/voice/
+    - assets/animation/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,4 +1,10 @@
+buildscript {
+    ext.kotlin_version = '1.5.31'
+    // other configurations
+}
+
 allprojects {
+    ext.kotlin_version = '1.9.10' // Update version on this line!
     repositories {
         google()
         mavenCentral()

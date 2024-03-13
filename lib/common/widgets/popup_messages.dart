@@ -1,7 +1,5 @@
 import 'package:courseguh/common/utils/app_colors.dart';
-import 'package:courseguh/common/widgets/custom_toast_content_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 
@@ -15,8 +13,8 @@ toastInfo(String msg,
       animation: StyledToastAnimation.slideFromRight,
       reverseAnimation: StyledToastAnimation.slideFromRight,
       position: StyledToastPosition.top,
-      animDuration: Duration(milliseconds: 2000),
-      duration: Duration(seconds: 4),
+      animDuration: const Duration(milliseconds: 2000),
+      duration: const Duration(seconds: 4),
       curve: Curves.elasticOut,
       reverseCurve: Curves.linear,
       textAlign: TextAlign.justify,

@@ -1,26 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'register_notifier.dart';
+part of 'application_nav_notifier.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$registerNotifierHash() => r'411b78c19d8f794009f9631edcaa7264045b155e';
+String _$applicationNavIndexHash() =>
+    r'72b9886102215121642eb0dbb787b91d8426b2c6';
 
-/// See also [RegisterNotifier].
-@ProviderFor(RegisterNotifier)
-final registerNotifierProvider =
-    AutoDisposeNotifierProvider<RegisterNotifier, RegisterState>.internal(
-  RegisterNotifier.new,
-  name: r'registerNotifierProvider',
+/// See also [ApplicationNavIndex].
+@ProviderFor(ApplicationNavIndex)
+final applicationNavIndexProvider =
+    AutoDisposeNotifierProvider<ApplicationNavIndex, int>.internal(
+  ApplicationNavIndex.new,
+  name: r'applicationNavIndexProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$registerNotifierHash,
+      : _$applicationNavIndexHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$RegisterNotifier = AutoDisposeNotifier<RegisterState>;
+typedef _$ApplicationNavIndex = AutoDisposeNotifier<int>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
