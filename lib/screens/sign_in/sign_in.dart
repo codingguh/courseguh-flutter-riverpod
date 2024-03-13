@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:courseguh/common/global_loader/global_loader.dart';
 import 'package:courseguh/common/global_success/global_success.dart';
 import 'package:courseguh/common/widgets/app_bar.dart';
@@ -48,7 +46,6 @@ class _SignInState extends ConsumerState<SignIn> {
     final signInprovider = ref.watch(signInNotifierProvider);
     final loader = ref.watch(appLoaderProvider);
     final isSuccessRegister = ref.watch(appRegisterSuccessProvider);
-    print("=======is success $isSuccessRegister ============");
 
     return Scaffold(
       body: Stack(

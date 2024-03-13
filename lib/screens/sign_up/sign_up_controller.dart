@@ -64,10 +64,10 @@ class SignUpController {
     var context = Navigator.of(ref.context);
 
     try {
-      print("Your name is $name");
-      print("Your email is $email");
-      print("Your password is $password");
-      print("Your name is $name");
+      // print("Your name is $name");
+      // print("Your email is $email");
+      // print("Your password is $password");
+      // print("Your name is $name");
       final credential = await SignUpRepo.firebaseSignUp(email, password);
       if (kDebugMode) {
         print(credential);
@@ -104,7 +104,7 @@ class SignUpController {
             backgroundColor: const Color.fromARGB(255, 225, 77, 42),
             context: buildContext);
       }
-      print(ex.code);
+      // print(ex.code);
     }
 
 //show the register app

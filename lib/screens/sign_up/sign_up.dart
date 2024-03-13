@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:courseguh/common/global_loader/global_loader.dart';
 import 'package:courseguh/common/global_success/global_success.dart';
 import 'package:courseguh/common/widgets/app_bar.dart';
@@ -51,7 +49,7 @@ class _SignUpState extends ConsumerState<SignUp> {
 
   @override
   Widget build(BuildContext context) {
-    final regProvider = ref.watch(registerNotifierProvider);
+    // final regProvider = ref.watch(registerNotifierProvider);
     final loader = ref.watch(appLoaderProvider);
     final isRegisterSuccess = ref.watch(appRegisterSuccessProvider);
 

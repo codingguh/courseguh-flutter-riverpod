@@ -50,21 +50,19 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyA6_BLphcy_gM1XAOvg6uZR-eHPR_EQZwI',
-    appId: '1:1034567334569:android:9586f755efa53063a347b8',
-    messagingSenderId: '1034567334569',
-    projectId: 'courseguh-5ee3d',
-    storageBucket: 'courseguh-5ee3d.appspot.com',
+    apiKey: 'AIzaSyCHo0r3fTAAgBKf-ptqygVQ_p_XQ8MyCr8',
+    appId: '1:111156261061:android:2887d2fd671579971840ac',
+    messagingSenderId: '111156261061',
+    projectId: 'courseguh',
+    storageBucket: 'courseguh.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCUeC_nh7a9jsAz7SDllRQ9rhf6D34MqV4',
-    appId: '1:1073032981214:ios:008ccd20772909c75ff04f',
-    messagingSenderId: '1073032981214',
-    projectId: 'ulearning-app-1bd32',
-    storageBucket: 'courseguh-5ee3d.appspot.com',
-    iosClientId:
-        '1073032981214-csaa5g1jnchnb8ladkpplg1u4f11ilr5.apps.googleusercontent.com',
-    iosBundleId: 'com.dbestech.ulearningRiverpod.ulearningApp',
+    apiKey: 'AIzaSyBLQxxGY7RgzFuWLdHBrzVvPrJeyYTOmSE',
+    appId: '1:111156261061:ios:c2554c7d64e6b8451840ac',
+    messagingSenderId: '111156261061',
+    projectId: 'courseguh',
+    storageBucket: 'courseguh.appspot.com',
+    iosBundleId: 'com.teguhdev.courseguh.courseguh',
   );
 }

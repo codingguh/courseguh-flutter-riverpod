@@ -1,87 +1,45 @@
 {
   "project_info": {
-    "project_number": "1034567334569",
-    "project_id": "courseguh-5ee3d",
-    "storage_bucket": "courseguh-5ee3d.appspot.com"
+    "project_number": "111156261061",
+    "project_id": "courseguh",
+    "storage_bucket": "courseguh.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1034567334569:android:1e32a636c3ed4bbea347b8",
+        "mobilesdk_app_id": "1:111156261061:android:cba0ec9adae73c461840ac",
         "android_client_info": {
-          "package_name": "com.teguhdev.courseguh"
+          "package_name": "com.dbestech.course_selling_app_riverpod"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "1034567334569-9ggdtaen52ooail3h4drqs5ahgv83kt2.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyB_KMxPgt4QW44repTVoQ993DGgLruk5ao"
+          "current_key": "AIzaSyCHo0r3fTAAgBKf-ptqygVQ_p_XQ8MyCr8"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1034567334569-9ggdtaen52ooail3h4drqs5ahgv83kt2.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "1034567334569-2maroo975g6g9b54eabtf10gornirq7r.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "my.id.teguhharits.courseguh"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1034567334569:android:9586f755efa53063a347b8",
+        "mobilesdk_app_id": "1:111156261061:android:2887d2fd671579971840ac",
         "android_client_info": {
           "package_name": "com.teguhdev.courseguh.courseguh"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "1034567334569-fpp7h2qt5999legka07d9372spb0u249.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.teguhdev.courseguh.courseguh",
-            "certificate_hash": "960262b330a616a39fb437f7d12d6969a61f09ea"
-          }
-        },
-        {
-          "client_id": "1034567334569-9ggdtaen52ooail3h4drqs5ahgv83kt2.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyB_KMxPgt4QW44repTVoQ993DGgLruk5ao"
+          "current_key": "AIzaSyCHo0r3fTAAgBKf-ptqygVQ_p_XQ8MyCr8"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1034567334569-9ggdtaen52ooail3h4drqs5ahgv83kt2.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "1034567334569-2maroo975g6g9b54eabtf10gornirq7r.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "my.id.teguhharits.courseguh"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
