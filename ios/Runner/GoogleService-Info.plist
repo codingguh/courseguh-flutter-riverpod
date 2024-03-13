@@ -3,9 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1034567334569-js745l28764t1vp7kag07e5me6egljqv.apps.googleusercontent.com</string>
+	<string>1034567334569-7f4meu6k5oks9ka5k4hvkf25vq74tkk7.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1034567334569-js745l28764t1vp7kag07e5me6egljqv</string>
+	<string>com.googleusercontent.apps.1034567334569-7f4meu6k5oks9ka5k4hvkf25vq74tkk7</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>1034567334569-fpp7h2qt5999legka07d9372spb0u249.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
 	<string>AIzaSyC4dP-jSZIrzCIhMGbNFlegSFFvEcM1LpA</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.teguhdev.courseguh</string>
+	<string>com.teguhdev.courseguh.courseguh</string>
 	<key>PROJECT_ID</key>
 	<string>courseguh-5ee3d</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1034567334569:ios:c4392a8ac96eaeb5a347b8</string>
+	<string>1:1034567334569:ios:c12d8d66d2ef45daa347b8</string>
 </dict>
 </plist>
