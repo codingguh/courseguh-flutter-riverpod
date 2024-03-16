@@ -1,5 +1,4 @@
 import 'package:courseguh/common/routes/routes.dart';
-import 'package:courseguh/common/services/http_util.dart';
 import 'package:courseguh/common/utils/app_styles.dart';
 import 'package:courseguh/common/utils/constants.dart';
 import 'package:courseguh/global.dart';
