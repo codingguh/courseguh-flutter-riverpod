@@ -6,6 +6,10 @@ A new Flutter project.
 
 flutter pub run build_runner watch --delete-conflicting-outputs
 
+xcrun altool --store-password-in-keychain-item "COURSEGUH-IOS" -u "aris.teguh861@gmail.com" -p "Standard@123." -target "Runner" -sdk iphoneos -configuration Release DEVELOPMENT_TEAM="codingguh"
+
+xcrun xcodebuild -project /Users/haimac/Movies/UDEMY/courseguh/ios/Runner.xcodeproj/project.pbxproj
+
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
