@@ -1,5 +1,8 @@
-import 'package:courseguh/common/entities/user.dart';
+import 'dart:convert';
+
+import 'package:courseguh/common/models/user.dart';
 import 'package:courseguh/common/global_loader/global_loader.dart';
+import 'package:courseguh/common/services/http_util.dart';
 import 'package:courseguh/common/utils/constants.dart';
 import 'package:courseguh/common/widgets/popup_messages.dart';
 import 'package:courseguh/global.dart';
@@ -52,10 +55,11 @@ class SignInController {
       var user = credential.user;
 
       if (user != null) {
+        print("Avatar ${user.photoURL}======");
         String? displayName = user.displayName;
         String? email = user.email;
         String? id = user.uid;
-        String? photoUrl = user.photoURL;
+        String photoUrl = user.photoURL ?? "default.png";
 
         LoginRequestEntity loginRequestEntity = LoginRequestEntity();
         loginRequestEntity.avatar = photoUrl;
@@ -79,7 +83,7 @@ class SignInController {
         toastInfo("Email or password is wrong",
             context: context, backgroundColor: Colors.red);
       }
-      print(e.code);
+      print("sdasda${e.code}");
     } catch (e) {
       if (kDebugMode) {
         print(e.toString());
@@ -89,25 +93,38 @@ class SignInController {
     ref.read(appLoaderProvider.notifier).setLoaderValue(false);
   }
 
-  void asyncPostAllData(
-      LoginRequestEntity loginRequestEntity, BuildContext context) {
+  Future<void> asyncPostAllData(
+      LoginRequestEntity loginRequestEntity, BuildContext context) async {
     //we need to talk to server
+    var result = await SignInRepo.login(params: loginRequestEntity);
+    if (result.code == 200) {
+      try {
+        var navigator = Navigator.of(ref.context);
+        //try to remember user info
+        Global.storageService.setString(
+            AppConstants.STORAGE_USER_PROFILE_KEY, jsonEncode(result.data));
+        Global.storageService.setString(
+            AppConstants.STORAGE_USER_TOKEN_KEY, result.data!.access_token!);
 
+        navigator.pushNamedAndRemoveUntil('/dashboard', (route) => false);
+      } catch (e) {
+        if (kDebugMode) {
+          print(e.toString());
+        }
+      }
+    } else {
+      toastInfo("Login error", context: context);
+    }
     //have local storage
     try {
       var navigator = Navigator.of(ref.context);
       //try to remember user info
-      Global.storageService
-          .setString(AppConstants.STORAGE_USER_PROFILE_KEY, "123");
+      Global.storageService.setString(AppConstants.STORAGE_USER_PROFILE_KEY,
+          jsonEncode({'name': 'teguh', 'email': 'teguhharits91@gmail.com'}));
       Global.storageService
           .setString(AppConstants.STORAGE_USER_TOKEN_KEY, "123456");
 
       navigator.pushNamedAndRemoveUntil('/dashboard', (route) => false);
-      // navigator.push(MaterialPageRoute(
-      //     builder: (BuildContext context) =>
-      //         Scaffold(appBar: AppBar(), body: Dashboard())));
-
-      //navigator.pushNamed("/dashboard");
     } catch (e) {
       if (kDebugMode) {
         print(e.toString());

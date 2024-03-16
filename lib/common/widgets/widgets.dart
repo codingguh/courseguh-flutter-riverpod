@@ -22,7 +22,7 @@ Widget appOnBoardingScreen(PageController controller,
       Container(
           margin: const EdgeInsets.only(top: 16),
           padding: const EdgeInsets.only(left: 30, right: 30),
-          child: text16Normal(text: subTitle)),
+          child: Text16Normal(text: subTitle)),
       _nextButton(index, controller, context)
     ],
   );
@@ -49,7 +49,8 @@ Widget _nextButton(int index, PageController controller, BuildContext context) {
       height: 50,
       margin: const EdgeInsets.only(top: 100, left: 25, right: 25),
       decoration: appBoxShadow(),
-      child: Center(child: text16Normal(text: "Next", color: Colors.white)),
+      child:
+          const Center(child: Text16Normal(text: "Next", color: Colors.white)),
     ),
   );
 }

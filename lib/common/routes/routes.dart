@@ -1,8 +1,9 @@
 import 'package:courseguh/common/routes/app_routes_name.dart';
 import 'package:courseguh/global.dart';
 import 'package:courseguh/screens/dashboard/dashboard.dart';
-import 'package:courseguh/screens/sign_in/sign_in.dart';
-import 'package:courseguh/screens/sign_up/sign_up.dart';
+import 'package:courseguh/screens/home/view/home.dart';
+import 'package:courseguh/screens/sign_in/view/sign_in.dart';
+import 'package:courseguh/screens/sign_up/view/sign_up.dart';
 import 'package:courseguh/screens/welcome/welcome.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -14,12 +15,13 @@ class AppScreens {
       RouteEntity(path: AppRoutesNames.SIGN_IN, page: const SignIn()),
       RouteEntity(path: AppRoutesNames.SIGN_UP, page: const SignUp()),
       RouteEntity(path: AppRoutesNames.DASHBOARD, page: const Dashboard()),
+      RouteEntity(path: AppRoutesNames.HOME, page: const Home()),
     ];
   }
 
   static MaterialPageRoute generateRouteSettings(RouteSettings settings) {
     if (kDebugMode) {
-      print("clicked route is ${settings.name}");
+      //print("clicked route is ${settings.name}");
     }
     if (settings.name != null) {
       var result = routes().where((element) => element.path == settings.name);

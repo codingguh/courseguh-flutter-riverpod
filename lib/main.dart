@@ -1,4 +1,5 @@
 import 'package:courseguh/common/routes/routes.dart';
+import 'package:courseguh/common/services/http_util.dart';
 import 'package:courseguh/common/utils/app_styles.dart';
 import 'package:courseguh/common/utils/constants.dart';
 import 'package:courseguh/global.dart';
@@ -10,6 +11,8 @@ Future<void> main() async {
   await Global.init();
   runApp(const ProviderScope(child: MyApp()));
 }
+
+final GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

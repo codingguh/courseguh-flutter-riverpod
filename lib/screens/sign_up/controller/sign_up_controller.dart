@@ -1,9 +1,11 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:async';
 
 import 'package:courseguh/common/global_loader/global_loader.dart';
 import 'package:courseguh/common/global_success/global_success.dart';
 import 'package:courseguh/common/widgets/popup_messages.dart';
-import 'package:courseguh/screens/sign_up/notifier/register_notifier.dart';
+import 'package:courseguh/screens/sign_up/provider/register_notifier.dart';
 import 'package:courseguh/screens/sign_up/sign_up_repo/sign_up_repo.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
@@ -18,6 +20,7 @@ class SignUpController {
 
   Future<void> handleSignUp() async {
     var state = ref.read(registerNotifierProvider);
+    print("asfkakfnsfns ${state.email}");
 
     String name = state.userName;
     String email = state.email;
@@ -34,7 +37,7 @@ class SignUpController {
     }
 
     if (state.userName.length < 6 || name.length < 6) {
-      toastInfo("Your name is too short",
+      toastInfo("Your name is too short ${state.userName}-$name",
           context: buildContext,
           backgroundColor: const Color.fromARGB(255, 225, 77, 42));
       return;
@@ -76,13 +79,9 @@ class SignUpController {
       if (credential.user != null) {
         await credential.user?.sendEmailVerification();
         await credential.user?.updateDisplayName(name);
+        String photoUrl = "uploads/default.png";
+        await credential.user?.updatePhotoURL(photoUrl);
 
-        //get server photo url
-        //set user photo url
-        // Timer(Duration(milliseconds: 900), () {
-        ref
-            .read(appRegisterSuccessProvider.notifier)
-            .setRegisterSuccessValue(true);
         toastInfo("Open your email inbox and verify account",
             context: buildContext);
         // });
@@ -104,7 +103,7 @@ class SignUpController {
             backgroundColor: const Color.fromARGB(255, 225, 77, 42),
             context: buildContext);
       }
-      // print(ex.code);
+      print(ex.code);
     }
 
 //show the register app

@@ -1,17 +1,19 @@
 import 'package:courseguh/common/utils/app_colors.dart';
+import 'package:courseguh/common/utils/image_res.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-BoxDecoration appBoxShadow(
-    {Color color = AppColors.primaryElement,
-    double radius = 15.0,
-    double sR = 1,
-    double bR = 2,
-    BoxBorder? border}) {
+BoxDecoration appBoxShadow({
+  Color color = AppColors.primaryElement,
+  double radius = 15.0,
+  double sR = 1,
+  double bR = 2,
+  BoxBorder? boxBorder,
+}) {
   return BoxDecoration(
       color: color,
-      border: border,
-      borderRadius: BorderRadius.circular(15.0),
+      border: boxBorder,
+      borderRadius: BorderRadius.circular(radius),
       boxShadow: [
         BoxShadow(
             color: Colors.grey.withOpacity(0.1),
@@ -37,7 +39,7 @@ BoxDecoration appBoxShadowWithRadius(
             color: Colors.grey.withOpacity(0.1),
             spreadRadius: sR,
             blurRadius: bR,
-            offset: Offset(0, 1))
+            offset: const Offset(0, 1))
       ]);
 }
 
@@ -49,4 +51,37 @@ BoxDecoration appBoxShadowTextField(
       color: color,
       borderRadius: BorderRadius.circular(radius),
       border: Border.all(color: borderColor));
+}
+
+class AppBoxDecorationImage extends StatelessWidget {
+  final double width;
+  final double height;
+  final String imagePath;
+
+  const AppBoxDecorationImage({
+    super.key,
+    this.width = 40,
+    this.height = 40,
+    this.imagePath = ImageRes.profile,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(4),
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+          border: Border.all(style: BorderStyle.solid),
+          borderRadius: BorderRadius.circular(40)),
+      child: Container(
+        width: width * 0.7,
+        height: height,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                fit: BoxFit.cover, image: NetworkImage(imagePath)),
+            borderRadius: BorderRadius.circular(width * 0.7)),
+      ),
+    );
+  }
 }

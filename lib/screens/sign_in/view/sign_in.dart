@@ -5,7 +5,7 @@ import 'package:courseguh/common/widgets/app_textfields.dart';
 import 'package:courseguh/common/widgets/button_widget.dart';
 import 'package:courseguh/common/widgets/text_widget.dart';
 import 'package:courseguh/screens/sign_in/notifier/sign_in_notifier.dart';
-import 'package:courseguh/screens/sign_in/sign_in_controller.dart';
+import 'package:courseguh/screens/sign_in/controller/sign_in_controller.dart';
 import 'package:courseguh/screens/sign_in/widgets/sign_in_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -124,7 +124,7 @@ class _SignInState extends ConsumerState<SignIn> {
                                 isLogin: false,
                                 context: context,
                                 func: () {
-                                  Navigator.pushNamed(context, "/sign-up");
+                                  Navigator.pushNamed(context, "/sign_up");
                                 },
                               ),
                             ),
