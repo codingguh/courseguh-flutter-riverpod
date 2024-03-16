@@ -26,18 +26,34 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           distribution: "zulu"
-          java-version: "12.x"
+          java-version: "17.x"
+          cache: "gradle"
       # 10
       - uses: subosito/flutter-action@v2
         with:
           # 11
           flutter-version: "3.19.3"
           channel: "stable"
+          cache: true
       - run: flutter --version
       # 12
       - name: Get dependencies
         run: flutter pub get
 
       # Runs a set of commands using the runners shell
-      - name: Start release build
-        run: flutter build appbundle
+
+      - name: Start release build APK
+        run: flutter build apk --release
+
+      - uses: actions/upload-artifact@v1
+        with:
+          name: release-apk
+          path: build/app/outputs/apk/release/app-release.apk
+
+      - name: Start release build IOS
+        run: flutter build ios --release
+
+      - uses: actions/upload-artifact@v1
+        with:
+          name: release-IOS
+          path: build/ios/iphoneos/app-release.ipa
