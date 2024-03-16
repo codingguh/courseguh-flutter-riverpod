@@ -49,11 +49,3 @@ jobs:
         with:
           name: release-apk
           path: build/app/outputs/apk/release/app-release.apk
-
-      - name: Start release build IOS
-        run: flutter build ios --release
-
-      - uses: actions/upload-artifact@v1
-        with:
-          name: release-IOS
-          path: build/ios/iphoneos/app-release.ipa
