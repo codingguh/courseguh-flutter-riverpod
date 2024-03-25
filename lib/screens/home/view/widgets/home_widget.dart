@@ -1,3 +1,4 @@
+import 'package:courseguh/common/models/course_entites.dart';
 import 'package:courseguh/common/utils/app_colors.dart';
 import 'package:courseguh/common/utils/constants.dart';
 import 'package:courseguh/common/utils/image_res.dart';
@@ -7,9 +8,7 @@ import 'package:courseguh/common/widgets/text_widget.dart';
 import 'package:courseguh/global.dart';
 import 'package:courseguh/screens/home/controller/home_controller.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -104,7 +103,6 @@ AppBar homeAppBar(WidgetRef ref) {
                     : "${AppConstants.SERVER_API_URL}uploads/default.png";
                 return GestureDetector(
                   child: AppBoxDecorationImage(
-                    width: 40.w,
                     imagePath: avatar,
                   ),
                 );
@@ -149,7 +147,7 @@ class HomeMenuBar extends StatelessWidget {
           height: 20.h,
         ),
         //course item button
-        Container(
+        SizedBox(
           child: Row(
             children: [
               Container(
@@ -179,6 +177,120 @@ class HomeMenuBar extends StatelessWidget {
           ),
         )
       ],
+    );
+  }
+}
+
+class CourseCard extends StatelessWidget {
+  final CourseItem course;
+
+  CourseCard({required this.course});
+
+  @override
+  Widget build(BuildContext context) {
+    return ConstrainedBox(
+      constraints: const BoxConstraints(minHeight: 350),
+      child: Card(
+        elevation: 3,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Flexible(
+              flex: 1,
+              child: Image.network(
+                course.thumbnail,
+                width: double.infinity,
+                height: 190.h,
+                fit: BoxFit.fitHeight,
+              ),
+            ),
+            Container(
+              color: Colors.white,
+              padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 6.h),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 35.h,
+                    child: Text(
+                      course.name!,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '\$${course.price.toString()}',
+                        style: const TextStyle(
+                          color: Colors.green,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          const Icon(Icons.star,
+                              color: Color.fromARGB(255, 232, 205, 108)),
+                          const SizedBox(width: 5),
+                          Text(
+                            4.8.toString(),
+                            style: const TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CourseItemGrid extends StatelessWidget {
+  final WidgetRef ref;
+  const CourseItemGrid({Key? key, required this.ref}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final courseState = ref.watch(homeCourseListProvider);
+
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 18.h, horizontal: 0),
+      child: courseState.when(
+          data: (data) {
+            return GridView.builder(
+              physics: const ScrollPhysics(),
+              shrinkWrap: true,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 9,
+                mainAxisSpacing: 20,
+                childAspectRatio: 0.8,
+              ),
+              itemCount: data?.length ?? 0,
+              itemBuilder: (BuildContext context, int index) {
+                return CourseCard(course: data![index]);
+              },
+            );
+          },
+          error: (error, stackTrace) {
+            print(stackTrace.toString());
+            return Center(
+              child: Text(error.toString()),
+            );
+          },
+          loading: () => const Center(
+                child: Text("Loading"),
+              )),
     );
   }
 }

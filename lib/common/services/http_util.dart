@@ -50,7 +50,9 @@ class HttpUtil {
     // EasyLoading.show(indicator: CircularProgressIndicator(),maskType: EasyLoadingMaskType.clear,dismissOnTap: true);
     Options requestOptions = options ?? Options();
     requestOptions.headers = requestOptions.headers ?? {};
+
     Map<String, dynamic>? authorization = getAuthorizationHeader();
+
     if (authorization != null) {
       requestOptions.headers!.addAll(authorization);
     }

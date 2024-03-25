@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:courseguh/common/models/user.dart';
 import 'package:courseguh/common/global_loader/global_loader.dart';
-import 'package:courseguh/common/services/http_util.dart';
 import 'package:courseguh/common/utils/constants.dart';
 import 'package:courseguh/common/widgets/popup_messages.dart';
 import 'package:courseguh/global.dart';
@@ -114,21 +113,6 @@ class SignInController {
       }
     } else {
       toastInfo("Login error", context: context);
-    }
-    //have local storage
-    try {
-      var navigator = Navigator.of(ref.context);
-      //try to remember user info
-      Global.storageService.setString(AppConstants.STORAGE_USER_PROFILE_KEY,
-          jsonEncode({'name': 'teguh', 'email': 'teguhharits91@gmail.com'}));
-      Global.storageService
-          .setString(AppConstants.STORAGE_USER_TOKEN_KEY, "123456");
-
-      navigator.pushNamedAndRemoveUntil('/dashboard', (route) => false);
-    } catch (e) {
-      if (kDebugMode) {
-        print(e.toString());
-      }
     }
 
     //redirect to new page
