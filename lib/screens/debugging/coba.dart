@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Course {
@@ -57,20 +56,20 @@ class CobaCourseGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double spacing = 15.0;
+    // double screenWidth = MediaQuery.of(context).size.width;
+    // double spacing = 15.0;
     int numberOfColumns = 2;
-    double itemAspectRatio = 1.0;
+    // double itemAspectRatio = 1.0;
 
-    double totalWidthAvailableForItems =
-        screenWidth - (numberOfColumns - 1) * spacing;
-    double widthOfEachItem =
-        (totalWidthAvailableForItems - (numberOfColumns - 1) * spacing) /
-            numberOfColumns;
-    double totalWidthOfGrid = widthOfEachItem * numberOfColumns;
+    // double totalWidthAvailableForItems =
+    // screenWidth - (numberOfColumns - 1) * spacing;
+    // double widthOfEachItem =
+    // (totalWidthAvailableForItems - (numberOfColumns - 1) * spacing) /
+    numberOfColumns;
+    // double totalWidthOfGrid = widthOfEachItem * numberOfColumns;
 
-    double distanceOfLeftEdgeOffScreen = (screenWidth - totalWidthOfGrid) / 2;
-    double distanceOfRightEdgeOffScreen = distanceOfLeftEdgeOffScreen;
+    // double distanceOfLeftEdgeOffScreen = (screenWidth - totalWidthOfGrid) / 2;
+    // double distanceOfRightEdgeOffScreen = distanceOfLeftEdgeOffScreen;
 
     return GridView.builder(
       physics: const ScrollPhysics(),
@@ -96,7 +95,7 @@ class CourseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 270.h,
       child: Card(
         elevation: 3,
@@ -113,7 +112,7 @@ class CourseCard extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -136,12 +135,12 @@ class CourseCard extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Icon(Icons.star,
+                          const Icon(Icons.star,
                               color: Color.fromARGB(255, 210, 172, 35)),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           Text(
                             course.rating.toString(),
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),

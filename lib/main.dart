@@ -11,6 +11,12 @@ Future<void> main() async {
   runApp(const ProviderScope(child: MyApp()));
 }
 
+class Person {
+  String name;
+  int age;
+  Person(this.name, this.age);
+}
+
 final GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>();
 
 class MyApp extends StatelessWidget {

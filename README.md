@@ -10,6 +10,11 @@ xcrun altool --store-password-in-keychain-item "COURSEGUH-IOS" -u "aris.teguh861
 
 xcrun xcodebuild -project /Users/haimac/Movies/UDEMY/courseguh/ios/Runner.xcodeproj/project.pbxproj
 
+
+
+cd ios && pod deintegrate && cd ..
+flutter clean && flutter build ios
+
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:

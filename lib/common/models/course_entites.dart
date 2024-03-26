@@ -150,7 +150,7 @@ class CourseItem {
   String? user_token;
   String? name;
   String? description;
-  String thumbnail;
+  String? thumbnail;
   String? video;
   String? price;
   String? amount_total;
@@ -165,7 +165,7 @@ class CourseItem {
     this.user_token,
     this.name,
     this.description,
-    required this.thumbnail,
+    this.thumbnail,
     this.video,
     this.price,
     this.amount_total,
