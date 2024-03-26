@@ -208,8 +208,9 @@ class CourseItemGrid extends StatelessWidget {
                 return CourseCard(
                   course: data![index],
                   func: () {
+                    print("SSFSDF ${data[index].id}");
                     Navigator.of(context).pushNamed("/course_detail",
-                        arguments: {"id": data[index].id!});
+                        arguments: {"id": data[index].id});
                   },
                 );
               },

@@ -22,14 +22,31 @@ class HttpUtil {
 
     dio = Dio(options);
     dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
+      // var accessToken = Global.storageService.getUserToken();
+      // options.headers['Authorization'] = 'Bearer $accessToken';
       return handler.next(options);
     }, onResponse: (response, handler) {
-      print("app response data ${response.data}");
       return handler.next(response);
-    }, onError: (DioException e, handler) {
+    }, onError: (DioException e, handler) async {
+      if (e.response?.statusCode == 401) {
+        // If a 401 response is received, refresh the access token
+        // String newAccessToken = await refreshToken();
+
+        // Update the request header with the new access token
+        // e.requestOptions.headers['Authorization'] = 'Bearer $newAccessToken';
+
+        // Repeat the request with the updated header
+        // return handler.resolve(await dio.fetch(e.requestOptions));
+      }
       ErrorEntity eInfo = createErrorEntity(e);
       onError(eInfo);
     }));
+  }
+
+  Future<String> refreshToken() async {
+    // Perform a request to the refresh token endpoint and return the new access token.
+    // You can replace this with your own implementation.
+    return 'your_new_access_token';
   }
 
   Map<String, dynamic>? getAuthorizationHeader() {
