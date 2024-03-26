@@ -1,4 +1,3 @@
-import 'package:courseguh/common/models/course_entites.dart';
 import 'package:courseguh/common/utils/app_colors.dart';
 import 'package:courseguh/common/utils/constants.dart';
 import 'package:courseguh/common/utils/image_res.dart';
@@ -7,6 +6,7 @@ import 'package:courseguh/common/widgets/image_widgets.dart';
 import 'package:courseguh/common/widgets/text_widget.dart';
 import 'package:courseguh/global.dart';
 import 'package:courseguh/screens/home/controller/home_controller.dart';
+import 'package:courseguh/screens/home/view/widgets/course_card_widget.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -181,80 +181,6 @@ class HomeMenuBar extends StatelessWidget {
   }
 }
 
-class CourseCard extends StatelessWidget {
-  final CourseItem course;
-
-  CourseCard({required this.course});
-
-  @override
-  Widget build(BuildContext context) {
-    return ConstrainedBox(
-      constraints: const BoxConstraints(minHeight: 350),
-      child: Card(
-        elevation: 3,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Flexible(
-              flex: 1,
-              child: Image.network(
-                course.thumbnail,
-                width: double.infinity,
-                height: 190.h,
-                fit: BoxFit.fitHeight,
-              ),
-            ),
-            Container(
-              color: Colors.white,
-              padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 6.h),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 35.h,
-                    child: Text(
-                      course.name!,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 5),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '\$${course.price.toString()}',
-                        style: const TextStyle(
-                          color: Colors.green,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          const Icon(Icons.star,
-                              color: Color.fromARGB(255, 232, 205, 108)),
-                          const SizedBox(width: 5),
-                          Text(
-                            4.8.toString(),
-                            style: const TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 class CourseItemGrid extends StatelessWidget {
   final WidgetRef ref;
   const CourseItemGrid({Key? key, required this.ref}) : super(key: key);
@@ -278,12 +204,17 @@ class CourseItemGrid extends StatelessWidget {
               ),
               itemCount: data?.length ?? 0,
               itemBuilder: (BuildContext context, int index) {
-                return CourseCard(course: data![index]);
+                return CourseCard(
+                  course: data![index],
+                  func: () {
+                    Navigator.of(context).pushNamed("/course_detail",
+                        arguments: {"id": data[index].id!});
+                  },
+                );
               },
             );
           },
           error: (error, stackTrace) {
-            print(stackTrace.toString());
             return Center(
               child: Text(error.toString()),
             );

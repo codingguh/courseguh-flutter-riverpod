@@ -52,7 +52,7 @@ Widget _bottomContainer(
 
 Widget appScreens({int index = 0}) {
   List<Widget> screens = [
-    const Home(),
+    Home(),
     Center(
       child: appImage(imagePath: ImageRes.search, width: 250, height: 250),
     ),

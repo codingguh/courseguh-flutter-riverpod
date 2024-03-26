@@ -43,7 +43,7 @@ class _SignInState extends ConsumerState<SignIn> {
 
   @override
   Widget build(BuildContext context) {
-    final signInprovider = ref.watch(signInNotifierProvider);
+    // final signInprovider = ref.watch(signInNotifierProvider);
     final loader = ref.watch(appLoaderProvider);
     final isSuccessRegister = ref.watch(appRegisterSuccessProvider);
 

@@ -1,5 +1,6 @@
 import 'package:courseguh/common/routes/app_routes_name.dart';
 import 'package:courseguh/global.dart';
+import 'package:courseguh/screens/course_detail/view/course_detail.dart';
 import 'package:courseguh/screens/dashboard/dashboard.dart';
 import 'package:courseguh/screens/home/view/home.dart';
 import 'package:courseguh/screens/sign_in/view/sign_in.dart';
@@ -16,6 +17,8 @@ class AppScreens {
       RouteEntity(path: AppRoutesNames.SIGN_UP, page: const SignUp()),
       RouteEntity(path: AppRoutesNames.DASHBOARD, page: const Dashboard()),
       RouteEntity(path: AppRoutesNames.HOME, page: const Home()),
+      RouteEntity(
+          path: AppRoutesNames.COURSE_DETAIL, page: const CourseDetail())
     ];
   }
 
@@ -28,9 +31,7 @@ class AppScreens {
       if (result.isNotEmpty) {
         //if we used this is first time or not
         bool deviceFirstTime = Global.storageService.getDeviceFirstOpen();
-        print(deviceFirstTime);
-        print(
-            "===Check this ${result.first.path == AppRoutesNames.WELCOME && deviceFirstTime}");
+
         if (result.first.path == AppRoutesNames.WELCOME && deviceFirstTime) {
           bool isLoggedIn = Global.storageService.isLoggedIn();
           if (isLoggedIn) {
