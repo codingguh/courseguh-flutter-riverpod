@@ -1,7 +1,6 @@
 import 'package:courseguh/common/models/course_entites.dart';
 import 'package:courseguh/common/utils/app_colors.dart';
 import 'package:courseguh/common/utils/image_res.dart';
-import 'package:courseguh/common/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -61,50 +60,32 @@ class AppBoxDecorationImage extends StatelessWidget {
   final String imagePath;
   final BoxFit fit;
   final CourseItem? courseItem;
+  final double borderRadius;
   final Function()? func;
 
-  const AppBoxDecorationImage(
-      {super.key,
-      this.width = 40,
-      this.height = 40,
-      this.imagePath = ImageRes.profile,
-      this.courseItem,
-      this.func,
-      this.fit = BoxFit.fitHeight});
+  const AppBoxDecorationImage({
+    Key? key,
+    this.width = 40,
+    this.height = 40,
+    this.borderRadius = 20,
+    this.imagePath = ImageRes.profile,
+    this.courseItem,
+    this.func,
+    this.fit = BoxFit.fitHeight,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: func,
-        child: Container(
-          width: width,
-          height: height,
-          decoration: BoxDecoration(
-              image: DecorationImage(fit: fit, image: NetworkImage(imagePath)),
-              border: Border.all(style: BorderStyle.solid),
-              borderRadius: BorderRadius.circular(20.w)),
-          child: courseItem == null
-              ? Container()
-              : Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(left: 20.w),
-                      child: FadeText(
-                        text: courseItem!.name!,
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(left: 20.w, bottom: 30.h),
-                      child: FadeText(
-                        text: "${courseItem!.lesson_num!.toString()} Lessons",
-                        color: AppColors.primaryFourElementText,
-                        fontSize: 8,
-                      ),
-                    ),
-                  ],
-                ),
-        ));
+      onTap: func,
+      child: Container(
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+          image: DecorationImage(fit: fit, image: NetworkImage(imagePath)),
+          borderRadius: BorderRadius.circular(borderRadius),
+        ),
+      ),
+    );
   }
 }

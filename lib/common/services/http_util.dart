@@ -29,24 +29,22 @@ class HttpUtil {
       return handler.next(response);
     }, onError: (DioException e, handler) async {
       if (e.response?.statusCode == 401) {
+        print("sdsafsf ${e.response?.statusCode}");
         // If a 401 response is received, refresh the access token
-        // String newAccessToken = await refreshToken();
+        String? newAccessToken = await refreshToken();
 
-        // Update the request header with the new access token
-        // e.requestOptions.headers['Authorization'] = 'Bearer $newAccessToken';
+        // Check if token refresh was successful
+        if (newAccessToken != null) {
+          // Update the request header with the new access token
+          e.requestOptions.headers['Authorization'] = 'Bearer $newAccessToken';
 
-        // Repeat the request with the updated header
-        // return handler.resolve(await dio.fetch(e.requestOptions));
+          // Repeat the request with the updated header
+          return handler.resolve(await dio.fetch(e.requestOptions));
+        }
       }
       ErrorEntity eInfo = createErrorEntity(e);
       onError(eInfo);
     }));
-  }
-
-  Future<String> refreshToken() async {
-    // Perform a request to the refresh token endpoint and return the new access token.
-    // You can replace this with your own implementation.
-    return 'your_new_access_token';
   }
 
   Map<String, dynamic>? getAuthorizationHeader() {
@@ -56,6 +54,14 @@ class HttpUtil {
       headers['Authorization'] = 'Bearer $accessToken';
     }
     return headers;
+  }
+
+  Future<String?> refreshToken() async {
+    // Implement token refresh logic here
+    // Example:
+    // var newToken = await callTokenRefreshApi();
+    // return newToken;
+    return null; // Return the new token or null if refresh fails
   }
 
   Future post(

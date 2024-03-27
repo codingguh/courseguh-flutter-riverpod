@@ -7,7 +7,10 @@ class ImageRes {
 
   static const String defaultImg = "$_imageBase/blank.png";
   static const String lock = "$_imageBase/lock.png";
+  static const String arrow_right = "$_imageBase/arrow_right.png";
   static const String user = "$_imageBase/user.png";
+  static const String people = "$_imageBase/people.png";
+  static const String star = "$_imageBase/star.png";
   static const String home = "$_imageBase/home.png";
   static const String menu = "$_imageBase/menu.png";
   static const String search = "$_imageBase/search2.png";
@@ -22,6 +25,10 @@ class ImageRes {
   static const String reading = "$_image/reading.png";
   static const String man = "$_image/man.png";
   static const String boy = "$_image/boy.png";
+
+  static const String video_detail = "$_imageBase/video_detail.png";
+  static const String download_detail = "$_imageBase/download_detail.png";
+  static const String file_detail = "$_imageBase/file_detail.png";
 
   //animation
   static const String loading = "$_animationBase/loading.json";

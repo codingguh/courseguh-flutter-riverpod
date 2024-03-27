@@ -14,3 +14,9 @@ AppBar buildAppBar(BuildContext context, {String title = ""}) {
     title: Text16Normal(text: title, color: AppColors.primaryText),
   );
 }
+
+AppBar buildGlobalAppBar(BuildContext context, {String title = ""}) {
+  return AppBar(
+    title: Text16Normal(text: title, color: AppColors.primaryText),
+  );
+}

@@ -96,7 +96,7 @@ AppBar homeAppBar(WidgetRef ref) {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          appImage(width: 18.w, height: 12.h, imagePath: ImageRes.menu),
+          AppImage(width: 18.w, height: 12.h, imagePath: ImageRes.menu),
           profileState.when(
               data: (value) {
                 var avatar = value.avatar != null
@@ -108,7 +108,7 @@ AppBar homeAppBar(WidgetRef ref) {
                   ),
                 );
               },
-              error: (err, stack) => appImage(
+              error: (err, stack) => AppImage(
                   width: 18.w, height: 12.h, imagePath: ImageRes.profile),
               loading: () => Container()),
         ],
@@ -208,7 +208,7 @@ class CourseItemGrid extends StatelessWidget {
                 return CourseCard(
                   course: data![index],
                   func: () {
-                    print("SSFSDF ${data[index].id}");
+                    // print("SSFSDF ${data[index].id}");
                     Navigator.of(context).pushNamed("/course_detail",
                         arguments: {"id": data[index].id});
                   },
@@ -217,7 +217,6 @@ class CourseItemGrid extends StatelessWidget {
             );
           },
           error: (error, stackTrace) {
-            print(stackTrace.toString());
             return Center(
               child: Text(error.toString()),
             );

@@ -20,7 +20,7 @@ Widget searchBar() {
         children: [
           Container(
             margin: EdgeInsets.only(left: 17.w),
-            child: appImage(imagePath: ImageRes.searchIcon),
+            child: const AppImage(imagePath: ImageRes.searchIcon),
           ),
           SizedBox(
             width: 240.w,
@@ -41,8 +41,8 @@ Widget searchBar() {
             boxBorder: Border.all(color: AppColors.primaryElement)),
         child: Padding(
           padding: EdgeInsets.all(2.w),
-          child:
-              appImage(imagePath: ImageRes.searchButton, width: 20, height: 20),
+          child: const AppImage(
+              imagePath: ImageRes.searchButton, width: 20, height: 20),
         ),
       ),
     )
